@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 
 class App extends Component {
+    constructor (props){
+        super(props);
+
+        this.state = {
+            name: '',
+            tasks: []
+        }
+        //bind: we need to do this because we're using it insside the render method
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(e) {
+        this.setState ({
+            name: e.target.value
+        });
+    }
     render() {
         return (
             <div className="container">
@@ -12,7 +27,11 @@ class App extends Component {
                             <div className="card-body">
                                 <form>
                                     <div className="form-group">
-                                        <textarea className="formControl" rows="5" placeholder="Create a task" required/>
+                                        <textarea 
+                                            onChange={this.handleChange}
+                                            value={this.state.name}
+                                            maxLength="255"
+                                            className="formControl" rows="5" placeholder="Create a task" required/>
                                     </div>
                                     <button type="button" className="btn btn-primary">Create a Task</button>
                                 </form>
