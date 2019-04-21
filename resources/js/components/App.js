@@ -10,7 +10,12 @@ class App extends Component {
                             <div className="card-header">React Component</div>
 
                             <div className="card-body">
-                                I'm an react component!
+                                <form>
+                                    <div className="form-group">
+                                        <textarea className="formControl" rows="5" placeholder="Create a task" required/>
+                                    </div>
+                                    <button type="button" className="btn btn-primary">Create a Task</button>
+                                </form>
                             </div>
                         </div>
                     </div>
